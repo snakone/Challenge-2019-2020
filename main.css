@@ -5,7 +5,7 @@
 }
 
 body {
-  height: 100vh;
+  height: 100%;
   width: 100%;
   font-weight: bold;
   font-family: 'Montserrat', sans-serif;
@@ -52,7 +52,7 @@ nav ul li {
   cursor: pointer;
 }
 
-section {
+.hero {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -60,13 +60,13 @@ section {
   z-index: 1;
 }
 
-section .countdown {
+.hero .countdown {
   display: grid;
   grid-template-columns: repeat(4, auto);
   grid-gap: 2rem;
 }
 
-section .countdown > div {
+.hero .countdown > div {
   width: 175px;
   margin: 1rem;
   text-align: center;
@@ -75,16 +75,120 @@ section .countdown > div {
   filter: contrast(100);
 }
 
-section .countdown > div > span {
+.hero .countdown > div > span {
   font-size: 1rem !important;
   padding-left: 1rem;
   color: white !important;
 }
 
+.knownledge {
+  position: relative;
+  top: 100%;
+  height: 100%;
+  color: black;
+  display: grid;
+    background-image: url("https://d.newsweek.com/en/full/1535169/christmas-winter-holiday-parade-war-christmas.jpg");
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+  border-top: 1px solid rgba(255,255,255, 0.5);
+}
+
+.knownledge::before {
+  content: '';
+  width: 100%;
+  height: 100vh;
+  background: rgba(0,0,0,0.8);
+  position: absolute;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 1;
+}
+
+.wrapper h2 {
+  margin-top: 1rem;
+  margin-bottom: 0;
+  color: white;
+}
+
+.big-card {
+  padding: 3rem 4rem;
+  border-radius: 10px;
+}
+
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  padding: 2rem 2rem 0 2rem;
+}
+
+.card {
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  margin: 2rem .5rem;
+  padding: 2rem;
+  text-align: center;
+  background: white;
+  width: 145px;
+}
+
+/* .card:hover::before {
+  width: 28px;
+  height: 16px;
+  background: transparent;
+  border: 5px solid white;
+  display: inline-block;
+  position: absolute;
+  top: -20px;
+  left: 37px;
+  content: "";
+  border-radius: 10px;
+  transform: rotate(-130deg);
+  -ms-transform: rotate(-130deg);
+  -webkit-transform: rotate(-130deg);
+}
+
+.card:hover::after {
+  width: 16px;
+  height: 23px;
+  background: transparent;
+  border: 5px solid white;
+  display: inline-block;
+  position: absolute;
+  top: -20px;
+  right: 45px;
+  content: "";
+  border-radius: 50px;
+  transform: rotate(40deg);
+} */
+
+.card:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  cursor: pointer;
+  transform: translateY(-15px);
+}
+
+.card p {
+  margin-top: 1rem;
+}
+
+.card img {
+  width: 75px;
+}
+
 h2 {
   font-size: 4rem;
   text-rendering: optimizeLegibility;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   text-align: center;
 }
 
@@ -124,7 +228,7 @@ h2 span {
 
 
 @media(max-width: 992px) {
-  section .countdown {
+  .hero .countdown {
     grid-template-columns: repeat(1, auto);
   }
 
@@ -133,6 +237,7 @@ h2 span {
   h2 { 
     font-size: 2rem;
     margin-top: 2rem;
+	  margin-bottom: 2rem;
     width: 100vw;
  }
 
@@ -141,13 +246,29 @@ h2 span {
     margin: 0 1rem;
   }
 
-  section .countdown {
+  .hero .countdown {
     grid-gap: 1rem;
   }
 
-  section .countdown > div {
+  .hero .countdown > div {
     font-size: 2rem;
     width: auto;
+  }
+
+  .grid-cards {
+    grid-template-columns: repeat(2, auto);
+    padding: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .card {
+    margin: 1rem .5rem;
+    padding: 1rem 2rem;
+  }
+
+  .wrapper h2 {
+    margin-top: 5rem;
+    margin-bottom: 1rem;
   }
 
 }

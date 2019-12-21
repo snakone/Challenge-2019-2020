@@ -6,6 +6,7 @@ interface CountDown {
 }
 
 const selector = (selector: string): Element | null => document.querySelector(selector);
+
 const daysDiv = selector('.days');
 const hoursDiv = selector('.hours');
 const minutesDiv = selector('.minutes');
